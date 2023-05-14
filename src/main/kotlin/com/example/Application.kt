@@ -33,5 +33,7 @@ fun Application.module(): Unit {
     
     // [Application.configureRouting] 함수를 호출
     configureRouting()
+    // [Application.contactUdModule] 함수를 호출
+    contactUsModule()
 }
 
