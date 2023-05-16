@@ -4,6 +4,7 @@ import io.ktor.server.routing.*
 import io.ktor.server.response.*
 import io.ktor.server.application.*
 import io.ktor.server.request.*
+import kotlinx.serialization.Serializable
 
 
 /**
@@ -33,5 +34,18 @@ fun Application.configureRouting() {
             
             call.respondText { "You are on page number: $page" }
         }
+        
+        post ("/login"){
+            
+            //* body 가져와서 해당 타입으로 변환
+            val body = call.receive<UserInfo>()
+            
+            println(body)
+            call.respondText("Everything working...") }
     }
 }
+
+
+
+@Serializable
+data class UserInfo(val email:String, val password:String)
